@@ -201,9 +201,9 @@ for animal in [15, 16, 17, 86, 88, 89, 90, 91, 92, 103, 104]:
 
     hist_df = pd.DataFrame(H.history)
     pd.DataFrame.from_dict(H.history).to_csv(
-        'CSVsTime//' + checkpoint_filepath, index=False)
+        'Rat_CSVsTime//' + checkpoint_filepath, index=False)
 
-    model.save("MODELsTime\\"+checkpoint_filepath)
+    model.save("Rat_MODELsTime\\"+checkpoint_filepath)
     loss, recall, accuracy, f1_score = model.evaluate(
         x=[Test_CH1, Test_CH2], y=Test_Labels)
 
@@ -245,7 +245,7 @@ for animal in [15, 16, 17, 86, 88, 89, 90, 91, 92, 103, 104]:
 
     # Results are stored in JSON files
     import json
-    name = "JSONsTime//" + Experiment + ".json"
+    name = "Rat_JSONsTime//" + Experiment + ".json"
     dict1 = {"Loss": loss, "Recall": recall, "Accuracy": accuracy, "F1": f1_score, "GroundTruth_in_Minutes":
              ground_truth_in_minutes, "True_Positive_in_Minutes": true_positive_in_minutes, "Percentages": percentages}
     out_file = open(name, "w")

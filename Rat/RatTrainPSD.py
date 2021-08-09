@@ -198,9 +198,9 @@ for animal in [15, 16, 17, 86, 88, 89, 90, 91, 92, 103, 104]:
     # Results
     hist_df = pd.DataFrame(H.history)
     pd.DataFrame.from_dict(H.history).to_csv(
-        'CSVs//' + checkpoint_filepath, index=False)
+        'Rat_CSVs//' + checkpoint_filepath, index=False)
 
-    model.save("MODELs\\"+checkpoint_filepath+".h5py")
+    model.save("Rat_MODELs\\"+checkpoint_filepath+".h5py")
     loss, recall, accuracy, f1_score = model.evaluate(
         x=[Test_CH1, Test_CH2], y=Test_Labels)
 
@@ -251,7 +251,7 @@ for animal in [15, 16, 17, 86, 88, 89, 90, 91, 92, 103, 104]:
 
     # Save evaluation results to JSON file 
     import json
-    name = "JSONs//" + Experiment + "with_conf_mat.json"
+    name = "Rat_JSONs//" + Experiment + "with_conf_mat.json"
     dict1 = {"Loss": loss, "Recall": recall, "Accuracy": accuracy, "F1": f1_score, "GroundTruth_in_Minutes":
              ground_truth_in_minutes, "True_Positive_in_Minutes": true_positive_in_minutes, "Percentages": percentages, "TP":TP, "FP":FP, "TN":TN, "FN":FN, "FP_rate":FP/np.sum(CONF_MAT,axis=None)}
     out_file = open(name, "w")
