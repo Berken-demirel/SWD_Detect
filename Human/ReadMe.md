@@ -1,5 +1,6 @@
-The model files are transferred to the Google Drive due to Git LFS restrictions.
-One should download the folders in the Google Drive URL below and "replace" with the corresponding folders in the GitHub repository. 
+# SWD-Detection-in-Humans
+### The model files are transferred to the Google Drive due to Git LFS restrictions.
+### One should download the folders in the Google Drive URL below and "replace" with the corresponding folders in the GitHub repository. 
 
 Google Drive URL: https://drive.google.com/drive/folders/1U82sRliO3sm058cut5ywFu_Q3S3F8s9s?usp=sharing
 
