@@ -22,7 +22,6 @@ def training(Xtrain, labels, test_set, test_labels, leave_n_out, train_num, targ
     :param in_size: the length of the input trial on the time/frequency axis
     :param out_size: output dimension, e.g. 2 for one-hot with 2 classes
     :param conf_mat_write: a boolean specifies whether to write confusion matrix
-    :return:
     """
     # prepare the data
     x_train, x_val, y_train, y_val = train_test_split(Xtrain, labels, stratify=labels, test_size=0.3, random_state=1)
@@ -50,13 +49,13 @@ def training(Xtrain, labels, test_set, test_labels, leave_n_out, train_num, targ
     where_am_I = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_f1_score', factor=0.1, patience=75, verbose=1,
                                                       mode='max', min_delta=0.001, cooldown=0, min_lr=0)
     # model training
-    history = model.fit(x=[Xtrain_II, Xtrain_V5], y=y_train, epochs=500, batch_size=80, verbose=1,
+    history = model.fit(x=[Xtrain_II, Xtrain_V5], y=y_train, epochs=900, batch_size=80, verbose=1,
                         validation_data=([xval_II, xval_V5], y_val),
-                        callbacks=[model_checkpoint_callback, stop_me, where_am_I])  # TODO
+                        callbacks=[model_checkpoint_callback, stop_me, where_am_I])
 
     # save model and history info
     pd.DataFrame.from_dict(history.history).to_csv(target_path + str(checkpoint_filepath) + ".csv", index=False)
-    model.save(target_path +  "checkpoint_" +checkpoint_filepath)
+    model.save(target_path +  "checkpoint_" + checkpoint_filepath)
     print(
         "Complete: training num: " + str(train_num) + " for leave " + str(leave_n_out) + " out cross validation conf.")
     # print test results
@@ -77,7 +76,6 @@ def time_leave_n_out_cross_validation(leave_n_out, npz_dataset_location, target_
     :param npz_dataset_location: the path/name of the windowed ready to train dataset
     :param target_path:target folder where the model, checkpoint and history will be saved
     :param sample_dim: the shape of one trial in the trial
-    :return:
     """
     dataset = np.load(npz_dataset_location, allow_pickle=True)['patients'].item()  # get the data
     patients = list(dataset.keys())  # get the patient names
@@ -124,7 +122,6 @@ def multitaperpsd_leave_n_out_cross_validation(leave_n_out, npz_dataset_location
     :param leave_n_out: for LOOCV this value should be 1
     :param npz_dataset_location: the path/name of the windowed ready to train dataset
     :param sample_dim: the shape of one trial in the trial
-    :return:
     """
     dataset = np.load(npz_dataset_location, allow_pickle=True)['patients'].item()  # get the data
     patients = list(dataset.keys())  # get the patient names
@@ -174,6 +171,12 @@ def multitaperpsd_leave_n_out_cross_validation(leave_n_out, npz_dataset_location
 
 
 def assume(original_labels, predictions):
+    """
+    This function applies the assumptions that are done in most of the Epylepsy Projects.
+    :param original_labels: Original labels of the test data (not one-hot)
+    :param predictions: Predicted labels of the test data (not one-hot)
+    :return: the labels which are processed by the assumptions
+    """
     assumed = predictions[:]
     differences = np.where(original_labels != predictions)[0]
     differences.sort()
@@ -181,12 +184,20 @@ def assume(original_labels, predictions):
         if original_labels[difference - 1] != original_labels[difference + 1]:
             # means there is transition from 0 to 1 or 1 to 0, thus assumptions are applicable
             assumed[difference] = original_labels[difference]
-        elif (original_labels[difference - 1] and original_labels[difference + 1]):
+        elif original_labels[difference - 1] and original_labels[difference + 1]:
+            # means there is a 11011 where the middle 0 should assumed to be 1
             assumed[difference] = 1
     return assumed
 
 
 def apply_assumptions(models_folder, dataset_path, sample_dim=(1, 2, 1251), is_time=False):
+    """
+    This function applies assumption to all LOOCV test sets and corresponding model predictions
+    :param models_folder: The folder where the model resides in
+    :param dataset_path: The path where the training dataset resides in
+    :param sample_dim: The sample dimension of the MODEL input
+    :param is_time: Wheter or not the model input is time
+    """
     dataset = np.load(dataset_path, allow_pickle=True)['patients'].item()
     patients = list(dataset.keys())
     num_of_set = len(patients)
@@ -224,15 +235,27 @@ def apply_assumptions(models_folder, dataset_path, sample_dim=(1, 2, 1251), is_t
 
 
 def data2input(data):
+    """
+    This function is written so that there is no need to repeat the following lines while preprocessing RAW input again
+    :param data: The raw input data which the multitaper psd transform is not applied
+    :return: the logged multitaper psd
+    """
     f, psd_mt, nu = tsa.multi_taper_psd(data, adaptive=False, jackknife=False, Fs=250, NW=6)
     psd_mt = np.where(psd_mt > 0.0000000001, psd_mt, 0.0000000001)
     return np.log10(psd_mt)
 
 
 def calculate_metrics(TN, FP, FN, TP):
-    accuracy = (TP + TN) / (TN + FP + FN + TP)
-    sensitivity = TP / (FN + TP)
-    specifity = TN / (FP + TN)
+    """
+    This function is written to calculate and print discussed metrics
+    :param TN: True Negatives
+    :param FP: False Positives
+    :param FN: False Negatives
+    :param TP: True Positives
+    """
+    accuracy = 100*(TP + TN) / (TN + FP + FN + TP)
+    sensitivity = 100*TP / (FN + TP)
+    specifity = 100*TN / (FP + TN)
     FD = FP * 360 / (TN + FP + FN + TP)
     print('accuracy: ' + str(accuracy))
     print('sensitivity: ' + str(sensitivity))
@@ -242,7 +265,8 @@ def calculate_metrics(TN, FP, FN, TP):
 
 def adjust_absz_patients(absz_dir, target_name, config, Fs=250):
     """
-    :param file_dir: # the dir where absz .npz files exists, ex: file_dir = "../absz/"
+    This function is written to prapare a dataset which ready to go to model from individual absz patient EEG data
+    :param absz_dir: # the dir where absz .npz files exists, ex: file_dir = "../absz/"
     :param target_name: # the dir where all patients will be stored ex: target_name = "absz_patients"
     :return:
     """
