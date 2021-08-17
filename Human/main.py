@@ -15,7 +15,10 @@ config = {'window_width': 10, 'sensitivity': 0.1, 'overlap': 0}
 # multitaperpsd_leave_n_out_cross_validation(1, './absz_patients/absz_all.npz', 'psd_model/', sample_dim=(1, 2, 1251))
 # time_leave_n_out_cross_validation(1, './absz_patients/absz_all.npz', 'time_model/', sample_dim=(1, 2, 2500))
 
+print('PSD input LOOCV Configuration Model Results:')
 apply_assumptions(models_folder='./psd_model', dataset_path='./absz_patients/absz_all.npz', sample_dim=(1, 2, 1251), is_time=False)
+
+print('Time input LOOCV Configuration Model Results:')
 apply_assumptions(models_folder='./time_model', dataset_path='./absz_patients/absz_all.npz', sample_dim=(1, 2, 2500), is_time=True)
 
 
