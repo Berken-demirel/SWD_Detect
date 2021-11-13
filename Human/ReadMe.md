@@ -1,5 +1,5 @@
-# Initial Setup
-## SWD-Detection-in-Humans
+# SWD-Detection-in-Humans
+## Initial Setup
 ### The model files are transferred to the Google Drive due to Git LFS restrictions.
 ### One should download the folders in the Google Drive URL below and "replace" with the corresponding folders in the GitHub repository before running the scripts to get meaningful results. 
 
@@ -11,4 +11,7 @@
 
 [Temple University Hospital All Datasets URL](https://www.isip.piconepress.com/projects/tuh_eeg/html/downloads.shtml)
 
-Before running the scripts, please check the [requirements.txt](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/requirements.txt).
+### Before running the scripts, please check the [requirements.txt](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/requirements.txt).
+
+## Running Scripts
+### If one completed initial setup, the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) can be directly run to see the evaluation results in the paper. Whole workflow is embedded into [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) so one do not have to deal with individual functions/scripts. Time consuming steps are commented out so that one can just run the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) to get results. However, if one is interested in initial steps that we followed, please feel free to uncomment the codes inside the  [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py).
