@@ -14,4 +14,14 @@
 ### Before running the scripts, please check the [requirements.txt](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/requirements.txt).
 
 ## Running Scripts
-### If one completed initial setup, the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) can be directly run to see the evaluation results in the paper. Whole workflow is embedded into [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) so one do not have to deal with individual functions/scripts. Time consuming steps are commented out so that one can just run the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) to get results. However, if one is interested in initial steps that we followed, please feel free to uncomment the codes inside the  [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py).
+### If one completed initial setup, the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) can be directly run to see the evaluation results in the paper. Whole workflow is embedded into [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) so one do not have to deal with individual functions/scripts. Time consuming steps are commented out so that one can just run the [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py) to get results. However, if one is interested in initial steps that we followed, please feel free to uncomment the codes inside the  [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py). For further details about processes please visit [main.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/main.py).
+
+
+## NN Model Architecture
+### The model architecture is implemented in [swd_model.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/swd_model.py). One should note that tensorflow_addons library is needed to run the script without errors.
+
+## Utilites Script
+### [swd_utils.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/swd_utils.py) contains most of the important functions such as estimating the Multitaper PSD, configuration function provides Leave N One Out Cross Validation, metric calculation etc. All functions are explained inside the script just after the definition. Feel free to investigate further.  
+
+## Reading the TUSZ Corpus of TUH
+### Since the data got from [TUSZ Corpus](https://isip.piconepress.com/projects/tuh_eeg/html/downloads.shtml#c_tusz) is not ready to feed into our neural network directly, some file handling functions are coded in [read_TUSZ.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/read_TUSZ.py). The functioncan be generalized for further applications and not only limited to absz seizure inside the corpus. There are a lot of arguments that can modify the main purpose of the functions. Researchers are free to use our functions according to their needs by citing our paper. Please note that [pyedflib](https://pyedflib.readthedocs.io/en/latest/contents.html) is necessary to run this script.
