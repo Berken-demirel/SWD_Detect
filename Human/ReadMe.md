@@ -20,7 +20,7 @@
 ## NN Model Architecture
 #### The model architecture is implemented in [swd_model.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/swd_model.py). One should note that tensorflow_addons library is needed to run the script without errors.
 
-## Utilites Script
+## Utilities Script
 #### [swd_utils.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Human/swd_utils.py) contains most of the important functions such as estimating the Multitaper PSD, configuration function provides Leave N One Out Cross Validation, metric calculation etc. All functions are explained inside the script just after the definition. Feel free to investigate further.  
 
 ## Reading the TUSZ Corpus of TUH
