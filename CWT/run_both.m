@@ -1,2 +1,0 @@
-rats_run
-humans_run
