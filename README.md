@@ -31,3 +31,9 @@
 <img src="./Human/img/skull.png" width="300">
 
 # SWD-Detection-in-Rats
+
+## Initial Setup
+#### The model files are transferred to the Google Drive due to Git LFS restrictions.
+#### One should download the folders in the Google Drive URL below and "replace" with the corresponding folders in the GitHub repository before running the scripts to get meaningful results. 
+[Raw and Parsed data](https://drive.google.com/drive/folders/1oIhVsMshzddXUUVGAm8L02yMjcH8NiJq?usp=sharing)
+The first section of the EDF_LABELLER.m script can be modified to parse the new EEG records, the existing one parses the shared records based on the seizure occurence information given in the excel sheets. 
