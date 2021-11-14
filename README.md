@@ -40,4 +40,5 @@ The first section of the EDF_LABELLER.m script can be modified to parse the new 
 The dependencies in [requirements.txt](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/requirements.txt) should be installed. 
 
 ## Running Scripts 
+Utility scripts except [create_training_data.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/create_training_data.py) are directly coded in main training scripts.
 Training scripts [RatTrainPSD.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/RatTrainPSD.py) and [RatTrainTime.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/RatTrainTime.py) are ready to run and they produce results in JSON and CSV directories. 
