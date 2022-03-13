@@ -1,6 +1,7 @@
-function Feature_Matrix = create_feature_matrix(folderpath, filepath)
+function Feature_Matrix = create_feature_matrix(output_folderpath, input_folderpath, filepath)
 rs_data = load(filepath).Voltage_CH1;
-animal = filepath(15:end-7);
+animal = regexp(filepath,'\d*','Match');
+animal = animal{end-1};
 samples = size(rs_data,1);
 freq_bands = [4.4 8.2 ; 8.8 16.4 ; 17.6 32.8 ; 35.1 65.5];
 Feature_Matrix = zeros(samples,12);
@@ -20,8 +21,8 @@ for i = 1:samples
     end
     
 end
-labels = load(['labels_Animal',animal,'.mat']).Final_labels;
+labels = load([input_folderpath,'/labels_Animal',animal,'.mat']).Final_labels;
 labels = labels(1,:);
 Feature_Matrix = [Feature_Matrix labels'];
-save([folderpath,'\Feats_',animal,'.mat'],'Feature_Matrix')
+save([output_folderpath,'\Feats_',animal,'.mat'],'Feature_Matrix')
 end

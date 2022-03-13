@@ -1,8 +1,9 @@
-function Feature_Matrix = create_feature_matrix_humans(folderpath, filepath)
+function Feature_Matrix = create_feature_matrix_humans(output_folderpath, filepath)
 % create future matrix for humans
 
 rs_data = load(filepath).data;
-animal = filepath(11:14);
+temp_container = regexp(filepath,'\d*','Match');
+animal = temp_container{end};
 samples = size(rs_data,1);
 Feature_Matrix = zeros(samples,12);
 
@@ -26,7 +27,7 @@ for i = 1:samples
 end
 labels = double(load(filepath).labels);
 Feature_Matrix = [Feature_Matrix labels'];
-save([folderpath,'\DWTFeats_',animal,'.mat'],'Feature_Matrix')
+save([output_folderpath,'\DWTFeats_',animal,'.mat'],'Feature_Matrix')
 end
 
 

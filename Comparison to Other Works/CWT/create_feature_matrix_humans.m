@@ -2,7 +2,8 @@ function Feature_Matrix = create_feature_matrix_humans(folderpath, filepath)
 % create future matrix for humans
 
 rs_data = load(filepath).data;
-animal = filepath(11:14);
+animal = regexp(filepath,'\d*','Match');
+animal = animal{end};
 samples = size(rs_data,1);
 freq_bands = [4.4 8.2 ; 8.8 16.4 ; 17.6 32.8 ; 35.1 65.5];
 Feature_Matrix = zeros(samples,12);

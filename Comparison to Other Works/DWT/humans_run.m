@@ -52,9 +52,8 @@ for i = 1:length(files)
     metric_table.Sensitivity(i) = sensitivity;
     metric_table.Accuracy(i) = accuracy;
     metric_table.FD_per_hour(i) = FD;
-    metric_table
 end
-
+metric_table
 save('human_results_SVM.mat','metric_table');
 
 % Empty table
@@ -106,8 +105,7 @@ for i = 1:length(files)
     metric_table.Sensitivity(i) = sensitivity;
     metric_table.Accuracy(i) = accuracy;
     metric_table.FD_per_hour(i) = FD;
-    metric_table
 end
-
+metric_table
 save('human_results_Tree.mat','metric_table');
 

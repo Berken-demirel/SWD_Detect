@@ -1,7 +1,9 @@
 chdir("..")
 files = dir('absz\HumanData*');
-chdir("DWT")
+folder = files(1).folder;
+chdir('DWT')
 for i = 1:length(files)
+    i
     test_data = files(i).name;
-    test_mat = create_feature_matrix_humans('Human_Features',test_data);
+    test_mat = create_feature_matrix_humans('Human_Features',[folder,'/',test_data]);
 end
