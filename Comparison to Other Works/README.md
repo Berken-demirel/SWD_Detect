@@ -20,10 +20,12 @@ The directories in [MAT and absz](https://drive.google.com/drive/folders/1vaUe2F
 
 #### Continous Wavelet Transform (CWT):
 
-[!](imgs/CWT.gif)
+<img src="./img/CWT.gif" width="800">
+
 By enabling wavelets to be scaled and translated continously, the signals can be represented in a more absolute form. This mathematical transformation is called [Continous Wavelet Transform (CWT)](https://en.wikipedia.org/wiki/Continuous_wavelet_transform). The two parameters of the continous wavelet transform are the scale factor a>0 and translational value b, both of which are real valued. Then the transformation is the following where psi with overline represents complex conjugate of the [mother wavelet](https://en.wikipedia.org/wiki/Wavelet#Mother_wavelet):
 
-[!](imgs/CWTformula.PNG)
+<img src="./img/CWTformula.PNG" width="800">
+
 
 #### Discrete Wavelet Transform (DWT):
 
