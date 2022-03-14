@@ -1,1 +1,1 @@
-#### Replace this folder with the one on the google drive url provided in [readme](https://github.com/Berken-demirel/SWD_Detect/tree/master/Comparison%20to%20Other%20Works).
+#### "REPLACE" this folder with the mat folder provided in [Google Drive](https://drive.google.com/drive/folders/1vaUe2F92PrSW9aJ2wb3HlJAm2VHjDsR9).
