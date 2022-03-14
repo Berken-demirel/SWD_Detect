@@ -7,8 +7,8 @@ This directory contains the implementations of feature extraction and SWD detect
 ## Repo Description 
 A 12 feature SVM implementation of SWD Detection algorithm implemented in MATLAB R2021b. 
 
-## Data 
-The directories in [MAT and absz](https://drive.google.com/drive/folders/1vaUe2F92PrSW9aJ2wb3HlJAm2VHjDsR9?usp=sharing) should be downloaded to this directory to parse the data and create feature matrices. 
+## Data (! Required Step to Run the Scripts)
+The directories in [MAT and absz](https://drive.google.com/drive/folders/1vaUe2F92PrSW9aJ2wb3HlJAm2VHjDsR9?usp=sharing) should be downloaded to this directory to parse the data and create feature matrices. It is uploaded to drive due to GitHub LFS size restrictions.
 
 ## Scripts
 
@@ -23,7 +23,7 @@ The directories in [MAT and absz](https://drive.google.com/drive/folders/1vaUe2F
 [!](imgs/CWT.gif)
 By enabling wavelets to be scaled and translated continously, the signals can be represented in a more absolute form. This mathematical transformation is called [Continous Wavelet Transform (CWT)](https://en.wikipedia.org/wiki/Continuous_wavelet_transform). The two parameters of the continous wavelet transform are the scale factor a>0 and translational value b, both of which are real valued. Then the transformation is the following where psi with overline represents complex conjugate of the [mother wavelet](https://en.wikipedia.org/wiki/Wavelet#Mother_wavelet):
 
-[!](CWTformula.PNG)
+[!](imgs/CWTformula.PNG)
 
 #### Discrete Wavelet Transform (DWT):
 
