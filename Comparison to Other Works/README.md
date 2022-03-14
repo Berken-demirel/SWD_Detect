@@ -20,11 +20,11 @@ The directories in [MAT and absz](https://drive.google.com/drive/folders/1vaUe2F
 
 #### Continous Wavelet Transform (CWT):
 
-[imgs/CWT.gif](!)
-By enabling wavelets to be scaled and translated continously, the signals can be represented in a more absolute form. This mathematical transformation is called [Continous Wavelet Transform (CWT)](https://en.wikipedia.org/wiki/Continuous_wavelet_transform). The two parameters of the continous wavelet transform are the scale factor a>0 and translational value b, both of which are real valued. Then the transformation is the following where psi with overline represents complex conjugate of the [https://en.wikipedia.org/wiki/Wavelet#Mother_wavelet](mother wavelet):
+[!](imgs/CWT.gif)
+By enabling wavelets to be scaled and translated continously, the signals can be represented in a more absolute form. This mathematical transformation is called [Continous Wavelet Transform (CWT)](https://en.wikipedia.org/wiki/Continuous_wavelet_transform). The two parameters of the continous wavelet transform are the scale factor a>0 and translational value b, both of which are real valued. Then the transformation is the following where psi with overline represents complex conjugate of the [mother wavelet](https://en.wikipedia.org/wiki/Wavelet#Mother_wavelet):
 
-[CWTformula.PNG](!)
+[!](CWTformula.PNG)
 
 #### Discrete Wavelet Transform (DWT):
 
-[https://en.wikipedia.org/wiki/Discrete_wavelet_transform](Discrete Wavelet Transform) is the discretized version of the usual wavelet transformation, as its name implies. This transformation captures both place and frequency data meantime unlike an ordinary Fourier Transform. The formulation of the transformation and further details such as time complexity, can be investigated from [https://en.wikipedia.org/wiki/Discrete_wavelet_transform#Definition](this link).
+[Discrete Wavelet Transform](https://en.wikipedia.org/wiki/Discrete_wavelet_transform) is the discretized version of the usual wavelet transformation, as its name implies. This transformation captures both place and frequency data meantime unlike an ordinary Fourier Transform. The formulation of the transformation and further details such as time complexity, can be investigated from [this link](https://en.wikipedia.org/wiki/Discrete_wavelet_transform#Definition).
