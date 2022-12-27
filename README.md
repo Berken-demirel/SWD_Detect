@@ -42,3 +42,23 @@ The dependencies in [requirements.txt](https://github.com/Berken-demirel/SWD_Det
 ## Running Scripts 
 Utility scripts except [create_training_data.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/create_training_data.py) are directly coded in main training scripts.
 Training scripts [RatTrainPSD.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/RatTrainPSD.py) and [RatTrainTime.py](https://github.com/Berken-demirel/SWD_Detect/blob/master/Rat/RatTrainTime.py) are ready to run and they produce results in JSON and CSV directories. 
+
+
+### Citation
+Please cite our paper below when using or referring to our work.
+```
+@article{BASER2022103726,
+title = {Automatic detection of the spike-and-wave discharges in absence epilepsy for humans and rats using deep learning},
+journal = {Biomedical Signal Processing and Control},
+volume = {76},
+pages = {103726},
+year = {2022},
+issn = {1746-8094},
+doi = {https://doi.org/10.1016/j.bspc.2022.103726},
+url = {https://www.sciencedirect.com/science/article/pii/S1746809422002488},
+author = {Oguzhan Baser and Melis Yavuz and Kutay Ugurlu and Filiz Onat and Berken Utku Demirel},
+keywords = {Electroencephalography (EEG), Spike-and-wave (SWD), Absence epilepsy, Power spectral density, Deep learning}
+}
+```
+
+
